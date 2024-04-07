@@ -46,10 +46,11 @@
 - Ћюбые предложени€ и замечани€ приветствуютс€!
 
 ## –азработчики
-- ƒанил (ссылка на гит’аб) - class (AdminService AdminRepository AdminRepositoryImpl)
-- Ќикон  (ссылка на гит’аб) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
-- Ќаиль  (ссылка на гит’аб) - class () все классы entity + DataBase
-- Dima  (ссылка на гит’аб) - class (UserService UserRepository UserRepositoryImpl)
+- ƒанил(senior) (ссылка на гит’аб) - class (AdminService AdminRepository AdminRepositoryImpl)
+- Ќикон(middle)  (ссылка на гит’аб) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
+- Ќаиль(junior)  (ссылка на гит’аб) - class () все классы entity + DataBase
+- Dima()  (ссылка на гит’аб) - class (UserService UserRepository UserRepositoryImpl)
+- 
 
 
 
