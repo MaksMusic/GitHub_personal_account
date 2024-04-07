@@ -50,7 +50,7 @@
 - Ќикон(middle)  (ссылка на гит’аб) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
 - Ќаиль(junior)  (ссылка на гит’аб) - class () все классы entity + DataBase
 - Dima()  (ссылка на гит’аб) - class (UserService UserRepository UserRepositoryImpl)
-- 
+
 
 
 
