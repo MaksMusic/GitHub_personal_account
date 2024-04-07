@@ -45,7 +45,7 @@
 - Если вы хотите внести вклад в проект, создайте форк репозитория и отправьте запрос на слияние (Pull Request).
 - Любые предложения и замечания приветствуются!
 
-## Разработчики
+##  Разработчики
 - Данил(senior) (ссылка на гитХаб) - class (AdminService AdminRepository AdminRepositoryImpl)
 - Никон(middle)  (ссылка на гитХаб) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
 - Наиль(junior)  (ссылка на гитХаб) - class () все классы entity + DataBase
