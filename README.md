@@ -34,6 +34,7 @@
 - Collection
 - Maven
 - GitHub
+- 89
 
 ## Как начать использовать проект
 1. Импортируйте проект в IntelliJ IDEA или другую IDE
