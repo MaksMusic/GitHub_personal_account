@@ -46,7 +46,11 @@
 - Ћюбые предложени€ и замечани€ приветствуютс€!
 
 ## –азработчики
-- »ван »ванов (ссылка на гит’аб) - class (классы за которые вы отвечаете)
+- ƒанил (ссылка на гит’аб) - class (AdminService AdminRepository AdminRepositoryImpl)
+- Ќикон  (ссылка на гит’аб) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
+- Ќаиль  (ссылка на гит’аб) - class () все классы entity + DataBase
+- Dima  (ссылка на гит’аб) - class (UserService UserRepository UserRepositoryImpl)
+
 
 
 
