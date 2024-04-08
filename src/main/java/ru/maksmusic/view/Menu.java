@@ -1,5 +1,6 @@
 package ru.maksmusic.view;
 
+import ru.maksmusic.service.SuperAdminService;
 import ru.maksmusic.service.UserService;
 
 /**
@@ -7,6 +8,8 @@ import ru.maksmusic.service.UserService;
  */
 public class Menu {
     UserService userService = new UserService();
+    SuperAdminService superAdminService = new SuperAdminService();
+
     public void start(){
         System.out.println("1 registration user");
         System.out.println("2 registration admin");
