@@ -5,7 +5,7 @@ import ru.maksmusic.repository.UserRepository;
 import ru.maksmusic.repository.UserRepositoryImpl;
 
 public class UserService {
-    UserRepository userRepository = new UserRepositoryImpl();
+    private UserRepository userRepository = new UserRepositoryImpl();
 
     public boolean addUser(UserAccount account) {
         if (account != null){
