@@ -49,7 +49,7 @@
 - Данил(senior) (ссылка на гитХаб) - class (AdminService AdminRepository AdminRepositoryImpl)
 - Никон(middle)  ([ссылка на гитХаб](https://github.com/MrNikaMilon)) - class (SuperAdminService SuperAdminRepository SuperAdminRepositoryImpl)
 - Наиль(junior)  (ссылка на гитХаб) - class () все классы entity + DataBase
-- Dima()  (ссылка на гитХаб) - class (UserService UserRepository UserRepositoryImpl)
+- Dima(midlde)  (ссылка на гитХаб) - class (UserService UserRepository UserRepositoryImpl)
 
 
 
