@@ -1,4 +1,4 @@
-package ru.maksmusic.repository.User;
+package ru.maksmusic.repository;
 
 import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.UserAccount;
