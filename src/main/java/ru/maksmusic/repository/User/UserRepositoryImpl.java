@@ -1,11 +1,11 @@
-package ru.maksmusic.repository;
+package ru.maksmusic.repository.User;
 
 import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.UserAccount;
 
 import java.util.List;
 
-public class UserRepositoryImpl implements UserRepository{
+public class UserRepositoryImpl implements UserRepository {
     AccountDatabase accountDatabase = new AccountDatabase();
     @Override
     public void addUser(UserAccount account) {
