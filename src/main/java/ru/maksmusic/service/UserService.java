@@ -1,10 +1,9 @@
 package ru.maksmusic.service;
 
-import ru.maksmusic.dataBase.AccountDatabase;
-import ru.maksmusic.model.Account;
+
 import ru.maksmusic.model.UserAccount;
-import ru.maksmusic.repository.UserRepository;
 import ru.maksmusic.repository.UserRepositoryImpl;
+import ru.maksmusic.repository.UserRepository;
 
 import java.util.*;
 
