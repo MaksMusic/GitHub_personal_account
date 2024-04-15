@@ -5,8 +5,11 @@ import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.UserRepositoryImpl;
 import ru.maksmusic.repository.UserRepository;
 
+import java.util.*;
+
 public class UserService {
-    UserRepository userRepository = new UserRepositoryImpl();
+
+    private UserRepository userRepository = new UserRepositoryImpl();
 
     public boolean addUser(UserAccount account) {
         if (account != null){
@@ -14,4 +17,27 @@ public class UserService {
         }
         return false;
     }
+    public void  deleteUser(long id){
+
+        userRepository.deleteUser(id);
+
+    }
+    public void updateUser(UserAccount account){
+       if(account != null){
+        userRepository.updateUser(account);
+
+       }
+
+    }
+    public void fildUserBy(long id){
+        userRepository.fildUserBy(id);
+    }
+
+    public void getAllUsersSortName(){
+        AccountDatabase accountDatabase = new AccountDatabase();
+        List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
+        Collections.sort(userAccounts, Comparator.comparing(Account::getLogin));
+
+    }
+
 }
