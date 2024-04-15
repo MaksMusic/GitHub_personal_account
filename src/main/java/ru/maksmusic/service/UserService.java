@@ -1,6 +1,7 @@
 package ru.maksmusic.service;
 
 
+import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.UserRepositoryImpl;
 import ru.maksmusic.repository.UserRepository;
@@ -36,7 +37,7 @@ public class UserService {
     public void getAllUsersSortName(){
         AccountDatabase accountDatabase = new AccountDatabase();
         List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
-        Collections.sort(userAccounts, Comparator.comparing(Account::getLogin));
+        Collections.sort(userAccounts, Comparator.comparing(UserAccount::getLogin));
 
     }
 
