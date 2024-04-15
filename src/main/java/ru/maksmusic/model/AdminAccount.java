@@ -5,5 +5,4 @@ public class AdminAccount extends Account {
         super(id, login, password);
     }
 
-
 }
