@@ -34,11 +34,12 @@ public class UserService {
         userRepository.fildUserBy(id);
     }
 
-    public void getAllUsersSortName(){
+    public List<UserAccount> getAllUsersSortName(){
         AccountDatabase accountDatabase = new AccountDatabase();
         List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
         Collections.sort(userAccounts, Comparator.comparing(UserAccount::getLogin));
-
+        return userAccounts;
     }
+
 
 }
