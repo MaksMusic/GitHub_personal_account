@@ -25,13 +25,13 @@ public class Menu {
         String answer = scanner.next();
         switch (answer) {
             case "1" -> {
-
+                    regUser();
             }
             case "2" -> {
-
+                    regAdmin();
             }
             case "3" -> {
-
+                    regSuperAdmin();
             }
             default -> {
 
