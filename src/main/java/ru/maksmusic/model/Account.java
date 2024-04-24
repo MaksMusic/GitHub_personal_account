@@ -4,21 +4,21 @@ package ru.maksmusic.model;
 import java.util.Objects;
 
 public abstract class Account {
-   String id;
+   Long id;
    String login;
    String password;
 
-    public Account(String id, String login, String password) {
+    public Account(Long id, String login, String password) {
         this.id = id;
         this.login = login;
         this.password = password;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
