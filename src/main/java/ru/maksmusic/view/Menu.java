@@ -4,6 +4,7 @@ import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.service.AdminService;
+import ru.maksmusic.service.GenerateID;
 import ru.maksmusic.service.UserService;
 
 import java.util.Scanner;
@@ -50,7 +51,15 @@ public class Menu {
     }
 
     private void regSuperAdmin(){
-        //принять информацию о супер админе и добавить его с помощью adminService
+        System.out.println("Ввидите логин : ");
+        String name = scanner.next();
+        System.out.println("Ввидите пароль : ");
+        String password = scanner.next();
+        SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
+
+        //superAdminService еще не создан
+        superAdminService.addSuperAdmin(superAdminAccount);
+
     }
 
 
