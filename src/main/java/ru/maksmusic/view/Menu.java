@@ -58,7 +58,7 @@ public class Menu {
         SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
 
         //superAdminService еще не создан
-        superAdminServiceS.addSuperAdmin(superAdminAccount);
+        superAdminService.addSuperAdmin(superAdminAccount);
 
     }
 
