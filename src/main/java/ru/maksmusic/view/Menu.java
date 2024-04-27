@@ -5,6 +5,7 @@ import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.service.AdminService;
 import ru.maksmusic.service.GenerateID;
+import ru.maksmusic.service.SuperAdminService;
 import ru.maksmusic.service.UserService;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ import java.util.Scanner;
 public class Menu {
     AdminService adminService = new AdminService();
     UserService userService = new UserService();
+    SuperAdminService superAdminService = new SuperAdminService();
     private Scanner scanner = new Scanner(System.in);
 
     public void start() {
@@ -58,7 +60,8 @@ public class Menu {
         SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
 
         //superAdminService еще не создан
-        superAdminService.addSuperAdmin(superAdminAccount);
+            //добавил метод addSuperAdminAccount
+        superAdminService.addSuperAdminAccount(superAdminAccount);
 
     }
 
