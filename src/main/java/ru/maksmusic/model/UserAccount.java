@@ -5,7 +5,7 @@ package ru.maksmusic.model;
  */
 public class UserAccount  extends Account{
     private double balance;
-    public UserAccount(String id, String login, String password) {
+    public UserAccount(Long id, String login, String password) {
         super(id, login, password);
     }
 
