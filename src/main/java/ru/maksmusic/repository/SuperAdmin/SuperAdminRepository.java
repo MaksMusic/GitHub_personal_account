@@ -15,7 +15,7 @@ public interface SuperAdminRepository {
     //Реализация просмотра спсика юзеров у СуперАдмина
     List<UserAccount> getUserList();
     //Реализация взаимодействия со списком юзеров СуперАдмина
-    void deleteUserFromList(String username);
+    void deleteUserFromList(long id);
     void changeUserPassword(String username, String newPassword);
 //Work with Admin
     //Реализация просмотра спсика Админов у СуперАдмина
@@ -23,4 +23,8 @@ public interface SuperAdminRepository {
     //Реализация взаимодействия со списком Админов СуперАдмина
     void deleteAdminFromList(String adminUsername);
     void changeAdminPassword(String adminUsername, String newAdminPassword);
+
+//Work with balance
+    //Реализация взаимодействия с бланасом пользователей
+    void setUsersBalance(long id, double balance);
 }
