@@ -23,12 +23,12 @@ public class SuperAdminService {
     public void deleteUserFromList(long id) {
         superAdminRepository.deleteUserFromList(id);
     }
-    public void changeUserPassword(String username, String newPassword){
-        superAdminRepository.changeUserPassword(username,newPassword);
+    public void changeUserPasswordById(long id){
+        superAdminRepository.changeUserPasswordById(id);
     }
     public void setUsersBalance(long id, double balance){
         superAdminRepository.setUsersBalance(id, balance);
-    };
+    }
 //Work with Admin
     public List<AdminAccount> getAdminList(){
         return superAdminRepository.getAdminList();
@@ -37,7 +37,13 @@ public class SuperAdminService {
     public void deleteAdminFromList(String adminUsername){
         superAdminRepository.deleteAdminFromList(adminUsername);
     }
-    public void changeAdminPassword(String adminUsername, String newAdminPassword){
-        superAdminRepository.changeAdminPassword(adminUsername, newAdminPassword);
+    public void changeAdminPassword(String adminUsername){
+        superAdminRepository.changeAdminPassword(adminUsername);
+    }
+    public void findUserById (long id) {
+        superAdminRepository.findUserById(id);
+    }
+    public void getUserBalanceById(long id) {
+        superAdminRepository.getUserBalanceById(id);
     }
 }

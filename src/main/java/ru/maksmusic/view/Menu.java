@@ -45,7 +45,13 @@ public class Menu {
     }
 
     private void regUser(){
-        //принять информацию о юзере и добавить с помощью userService
+        System.out.println("Ввидите логин : ");
+        String name = scanner.next();
+        System.out.println("Ввидите пароль : ");
+        String password = scanner.next();
+        UserAccount userAccount = new UserAccount(GenerateID.getId(),name,password);
+
+        userService.addUser(userAccount);
     }
 
     private void regAdmin(){
@@ -110,6 +116,49 @@ public class Menu {
     private void lkSuperAdmin(SuperAdminAccount superAdminAccount){
         while (true) {
 
+            System.out.println("1 вывести информацию о юзере по id");
+            System.out.println("2 сменить юзеру пароль по id");
+            System.out.println("3 просмотр баланса юзера по id");
+            System.out.println("4 вывести всех админов");
+            System.out.println("5 сменить пароль админу");
+            System.out.println("6 удалить аккаунт админа");
+            System.out.println("7 удалить аккаунт юзера");
+            String answer = scanner.next();
+            switch (answer) {
+                case "1" -> {
+                    System.out.println("Введите id пользователя");
+                    long userId = Long.parseLong(scanner.next());
+                    superAdminService.findUserById(userId);
+                }
+                case "2" -> {
+                    System.out.println("Введите id пользователя");
+                    long userId = Long.parseLong(scanner.next());
+                    superAdminService.changeUserPasswordById(userId);
+                }
+                case "3" -> {
+                    System.out.println("Введите id пользователя");
+                    long userId = Long.parseLong(scanner.next());
+                    superAdminService.getUserBalanceById(userId);
+                }
+                case "4" -> {
+                    superAdminService.getAdminList();
+                }
+                case "5" -> {
+                    System.out.println("Введите логин админа");
+                    String adminName = scanner.next();
+                    superAdminService.changeAdminPassword(adminName);
+                }
+                case "6" -> {
+                    System.out.println("Введите логин админа");
+                    String adminName = scanner.next();
+                    superAdminService.deleteAdminFromList(adminName);
+                }
+                case "7" -> {
+                    System.out.println("Введите id юзера");
+                    long userId = Long.parseLong(scanner.next());
+                    superAdminService.deleteUserFromList(userId);
+                }
+            }
             // пункт 1 вывести информацию о юзере по id
             // пункт 2 сменить юзеру пароль по id
             // пункт 3 просмотр баланса юзера по id
@@ -118,7 +167,7 @@ public class Menu {
             // пункт 6 удалить аккаунт админа
             // пункт 7 удалить аккаунт юзера
             // сменить свой пароль
-            String answer = scanner.next();
+
             //тут свитч кейс
         }
     }
