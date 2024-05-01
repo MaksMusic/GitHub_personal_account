@@ -10,11 +10,13 @@ import ru.maksmusic.repository.UserRepository;
 import ru.maksmusic.repository.UserRepositoryImpl;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class SuperAdminRepositoryImpl implements SuperAdminRepository {
     private AccountDatabase accountDatabase = new AccountDatabase();
-    private AdminRepository adminRepositroy = new AdminRepositoryImpl();
+    private AdminRepository adminRepository = new AdminRepositoryImpl();
     private UserRepository userRepository  = new UserRepositoryImpl();
+    private Scanner scanner = new Scanner(System.in);
 
     List<SuperAdminAccount> superAdminAccounts = accountDatabase.getSuperAdminAccounts();
     List<AdminAccount> adminAccounts = accountDatabase.getAdminAccounts();
@@ -42,23 +44,30 @@ public class SuperAdminRepositoryImpl implements SuperAdminRepository {
     public void deleteUserFromList(long id){
         userRepository.deleteUser(id);
     }
+
     @Override
-    public void changeUserPassword(String username, String newPassword){
-        adminRepositroy.changeUserPassword(username, newPassword);
+    public void changeUserPasswordById(long id) {
+        UserAccount currentUserAccount = userAccounts.get((int) id);
+        String newPassword = scanner.next();
+        currentUserAccount.setPassword(newPassword);
     }
+
     @Override
     public List<AdminAccount> getAdminList(){
         return adminAccounts;
     }
     @Override
     public void deleteAdminFromList(String adminUsername){
-        adminRepositroy.deleteUserFromList(adminUsername);
+        adminRepository.deleteUserFromList(adminUsername);
     }
     @Override
-    public void changeAdminPassword(String adminUsername, String newAdminPassword){
+    public void changeAdminPassword(String adminUsername){
+        System.out.println("Введите новый пароль");
+        String newPassword = scanner.next();
         for (AdminAccount admin : adminAccounts) {
             if (admin.getLogin().equals(adminUsername)) {
-                admin.setPassword(newAdminPassword);
+                admin.setPassword(newPassword);
+                System.out.println("Пароль успешно изменён");
                 break;
             }
         }
@@ -71,5 +80,18 @@ public class SuperAdminRepositoryImpl implements SuperAdminRepository {
                 break;
             }
         }
+    }
+
+    @Override
+    public void findUserById(long id) {
+        UserAccount currentUserAccount = userAccounts.get((int) id);
+        System.out.println(currentUserAccount);
+    }
+
+    @Override
+    public void getUserBalanceById(long id) {
+        UserAccount currentUserAccount = userAccounts.get((int) id);
+        double currentUserBalance = currentUserAccount.getBalance();
+        System.out.println(currentUserBalance);
     }
 }
