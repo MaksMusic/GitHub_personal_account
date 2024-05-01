@@ -68,11 +68,7 @@ public class Menu {
         //superAdminService еще не создан
             //добавил метод addSuperAdminAccount
         superAdminService.addSuperAdminAccount(superAdminAccount);
-
     }
-
-
-
     private void logIn(){
         System.out.println("Введите в роли кого вы хотите войти");
         System.out.println("1 - user");
@@ -85,23 +81,54 @@ public class Menu {
 
 
     }
-
-
     private void lkUser(UserAccount userAccount){
         while (true) {
             // пункт 1 вывести информацию о юзере
             // пункт 2 сменить пароль
             // пункт 3 просмотр баланса
             // 0 - выйти с лк (остановить цикл)
-            String answer = scanner.next();
             //тут свитч кейс
-
+            //Реализация работы личного кабинета для Юзера
+                //Просьба к юзеру ввести указанные числа для дальнейшего взаимодействия с приложением
+            System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему ID.");
+            System.out.println("Введите 2 чтобы сменить ваш пароль по ID.");
+            System.out.println("Введите 3 чтобы посмотреть баланс по ID.");
+            System.out.println("Введите 0 если хотите выйти.");
+                //Получение числа от юзера через Scanner
+            String answerUser = scanner.next();
+                //Обработка полученного значения от юзера и дальнейшее взаимодействие с юзером
+            switch(answerUser){
+                //Действие при получении значения 1 -> просим ввести юзера его ID(?) после выводим всю информацию о юзере
+                case "1" -> {
+                    System.out.print("Пожалуйста, введите ваш ID: ");
+                    long idUsers = Long.parseLong(scanner.next());
+                    userService.fildUserBy(idUsers);
+                }
+                //Действие при получении значения 2 -> просим ввести юзера его ID и новый пароль и меняем юзеру пароль
+                case "2" -> {
+                    System.out.print("Пожалуйста, введите ваш ID: ");
+                    long idUsers = Long.parseLong(scanner.next());
+                    System.out.print("Пожалуйста, введите новый пароль: ");
+                    String newPassword = scanner.nextLine();
+                    adminService.changeUserPassword(userService.retrunUserLogin(idUsers), newPassword);
+                }
+                //Действие при получении значения 3 -> просим ввести юзера его ID выводим баланс юзера
+                case "3" -> {
+                    System.out.print("Пожалуйста, введите ваш ID: ");
+                    long idUsers = Long.parseLong(scanner.next());
+                    superAdminService.getUserBalanceById(idUsers);
+                }
+                //Действие при получении значения 3 -> выводим надпись "Выход" и выходим из цикла
+                case "0" -> {
+                    System.out.print("Exist");
+                }
+            }
+        break;
         }
     }
 
     private void lkAdmin(AdminAccount userAccount){
         while (true) {
-
             // пункт 1 вывести информацию о юзерах (Всех)
             // пункт 2 сменить юзеру пароль по id
             // пункт 3 просмотр баланса юзера по id
@@ -109,13 +136,19 @@ public class Menu {
             // 0 - выйти с лк (остановить цикл)
             String answer = scanner.next();
             //тут свитч кейс
-
         }
     }
-
     private void lkSuperAdmin(SuperAdminAccount superAdminAccount){
+        // пункт 1 вывести информацию о юзере по id
+        // пункт 2 сменить юзеру пароль по id
+        // пункт 3 просмотр баланса юзера по id
+        // пункт 4 Вывести всех админов
+        // пункт 5 сменить пароль админу
+        // пункт 6 удалить аккаунт админа
+        // пункт 7 удалить аккаунт юзера
+        // сменить свой пароль
+        //тут свитч кейс
         while (true) {
-
             System.out.println("1 вывести информацию о юзере по id");
             System.out.println("2 сменить юзеру пароль по id");
             System.out.println("3 просмотр баланса юзера по id");
@@ -159,16 +192,6 @@ public class Menu {
                     superAdminService.deleteUserFromList(userId);
                 }
             }
-            // пункт 1 вывести информацию о юзере по id
-            // пункт 2 сменить юзеру пароль по id
-            // пункт 3 просмотр баланса юзера по id
-            // пункт 4 Вывести всех админов
-            // пункт 5 сменить пароль админу
-            // пункт 6 удалить аккаунт админа
-            // пункт 7 удалить аккаунт юзера
-            // сменить свой пароль
-
-            //тут свитч кейс
         }
     }
 }

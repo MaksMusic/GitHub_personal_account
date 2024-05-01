@@ -9,6 +9,8 @@ public class UserAccount  extends Account{
         super(id, login, password);
     }
 
+    //Имплементация метода: getLoginUsers, в классе наследнике от Account, о причинах и функционале читай -> UserService
+    public String getLoginUsers(){return login;};
     public double getBalance() {
         return balance;
     }
