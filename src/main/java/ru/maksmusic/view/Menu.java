@@ -90,9 +90,9 @@ public class Menu {
             //тут свитч кейс
             //Реализация работы личного кабинета для Юзера
                 //Просьба к юзеру ввести указанные числа для дальнейшего взаимодействия с приложением
-            System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему ID.");
-            System.out.println("Введите 2 чтобы сменить ваш пароль по ID.");
-            System.out.println("Введите 3 чтобы посмотреть баланс по ID.");
+            System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему логину.");
+            System.out.println("Введите 2 чтобы сменить ваш пароль по логину.");
+            System.out.println("Введите 3 чтобы посмотреть баланс по логину.");
             System.out.println("Введите 0 если хотите выйти.");
                 //Получение числа от юзера через Scanner
             String answerUser = scanner.next();
@@ -100,30 +100,30 @@ public class Menu {
             switch(answerUser){
                 //Действие при получении значения 1 -> просим ввести юзера его ID(?) после выводим всю информацию о юзере
                 case "1" -> {
-                    System.out.print("Пожалуйста, введите ваш ID: ");
-                    long idUsers = Long.parseLong(scanner.next());
-                    userService.fildUserBy(idUsers);
+                    System.out.print("Пожалуйста, введите ваш логин: ");
+                    String userLogin = scanner.nextLine();
+                    userService.fildUserBy(userService.retrunUserId(userLogin));
                 }
                 //Действие при получении значения 2 -> просим ввести юзера его ID и новый пароль и меняем юзеру пароль
                 case "2" -> {
-                    System.out.print("Пожалуйста, введите ваш ID: ");
-                    long idUsers = Long.parseLong(scanner.next());
+                    System.out.print("Пожалуйста, введите ваш логин: ");
+                    String userLogin = scanner.nextLine();
                     System.out.print("Пожалуйста, введите новый пароль: ");
                     String newPassword = scanner.nextLine();
-                    adminService.changeUserPassword(userService.retrunUserLogin(idUsers), newPassword);
+                    adminService.changeUserPassword(userLogin, newPassword);
                 }
                 //Действие при получении значения 3 -> просим ввести юзера его ID выводим баланс юзера
                 case "3" -> {
-                    System.out.print("Пожалуйста, введите ваш ID: ");
-                    long idUsers = Long.parseLong(scanner.next());
-                    superAdminService.getUserBalanceById(idUsers);
+                    System.out.print("Пожалуйста, введите ваш логин: ");
+                    String userLogin = scanner.nextLine();
+                    superAdminService.getUserBalanceById(userService.retrunUserId(userLogin));
                 }
                 //Действие при получении значения 3 -> выводим надпись "Выход" и выходим из цикла
                 case "0" -> {
-                    System.out.print("Exist");
+                    break;
                 }
             }
-        break;
+
         }
     }
 

@@ -1,14 +1,9 @@
 package ru.maksmusic.repository.SuperAdmin;
-
-
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.UserAccount;
-
 import java.util.List;
-
 public interface SuperAdminRepository {
-
 //Work with SuperAdmin
     void addSuperAdminAccount(SuperAdminAccount SuperAdminAccount);
     SuperAdminAccount getSuperAdminLoginAndPassword (String login, String password);

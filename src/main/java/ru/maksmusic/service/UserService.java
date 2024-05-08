@@ -33,8 +33,8 @@ public class UserService {
         userRepository.fildUserBy(id);
     }
 
-    //Для реализации смены пароля по id юзера и для отсутствия нарушений уже готовой логики приложения имплементировал метод возврата логина по паролю
-    public String retrunUserLogin(long id){return userRepository.retrunUserLogin(id);};
+    //Для реализации смены пароля по логину юзера и для отсутствия нарушений уже готовой логики приложения имплементировал метод возврата id по логину
+    public long retrunUserId(String loginUser){return userRepository.retrunUserId(loginUser);};
 
     public List<UserAccount> getAllUsersSortName(){
         AccountDatabase accountDatabase = new AccountDatabase();

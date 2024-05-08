@@ -2,7 +2,6 @@ package ru.maksmusic.repository.User;
 
 import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.UserAccount;
-import ru.maksmusic.repository.User.UserRepository;
 
 import java.util.List;
 
@@ -36,11 +35,12 @@ public class UserRepositoryImpl implements UserRepository {
         System.out.println(userAccounts.get((int) id));
     }
 
-    //Имплементация и переопределение нового метода: retrunUserLogin, в репозитории, о причинах и функционале читай -> UserService
+    //Имплементация и переопределение нового метода: retrunUserId, в репозитории, о причинах и функционале читай -> UserService
     @Override
-    public String retrunUserLogin(long id){
+    public long retrunUserId(String userLogin){
         List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
-        return userAccounts.get((int) id).getLoginUsers();
+        int indexLogin = userAccounts.indexOf(userLogin);
+        return userAccounts.get(indexLogin).getIdUsers();
     }
 }
 
