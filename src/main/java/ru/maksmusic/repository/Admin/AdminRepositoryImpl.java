@@ -41,7 +41,6 @@ public class AdminRepositoryImpl implements AdminRepository {
         }
         return null;
     }
-
     //Просмотр списка пользователей
     @Override
     public List<UserAccount> getUserList() {

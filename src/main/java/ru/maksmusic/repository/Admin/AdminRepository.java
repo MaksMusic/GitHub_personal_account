@@ -2,7 +2,6 @@ package ru.maksmusic.repository.Admin;
 
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.UserAccount;
-
 import java.util.List;
 
 public interface AdminRepository {

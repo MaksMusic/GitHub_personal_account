@@ -3,8 +3,8 @@ package ru.maksmusic.service;
 
 import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.UserAccount;
-import ru.maksmusic.repository.UserRepositoryImpl;
-import ru.maksmusic.repository.UserRepository;
+import ru.maksmusic.repository.User.UserRepositoryImpl;
+import ru.maksmusic.repository.User.UserRepository;
 
 import java.util.*;
 
@@ -26,13 +26,15 @@ public class UserService {
     public void updateUser(UserAccount account){
        if(account != null){
         userRepository.updateUser(account);
-
        }
 
     }
     public void fildUserBy(long id){
         userRepository.fildUserBy(id);
     }
+
+    //Для реализации смены пароля по логину юзера и для отсутствия нарушений уже готовой логики приложения имплементировал метод возврата id по логину
+    public long retrunUserId(String loginUser){return userRepository.retrunUserId(loginUser);};
 
     public List<UserAccount> getAllUsersSortName(){
         AccountDatabase accountDatabase = new AccountDatabase();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * класс, отвечающий за управление списком аккаунтов.
+ * Класс, отвечающий за управление списком аккаунтов.
  */
 public class AccountDatabase {
     private List<UserAccount> userAccounts = new ArrayList<>();

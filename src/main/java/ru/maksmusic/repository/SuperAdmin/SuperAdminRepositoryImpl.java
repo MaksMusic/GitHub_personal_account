@@ -6,8 +6,8 @@ import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.Admin.AdminRepository;
 import ru.maksmusic.repository.Admin.AdminRepositoryImpl;
-import ru.maksmusic.repository.UserRepository;
-import ru.maksmusic.repository.UserRepositoryImpl;
+import ru.maksmusic.repository.User.UserRepository;
+import ru.maksmusic.repository.User.UserRepositoryImpl;
 
 import java.util.List;
 import java.util.Scanner;
@@ -81,7 +81,6 @@ public class SuperAdminRepositoryImpl implements SuperAdminRepository {
             }
         }
     }
-
     @Override
     public void findUserById(long id) {
         UserAccount currentUserAccount = userAccounts.get((int) id);
