@@ -23,9 +23,9 @@ public class UserService {
         userRepository.deleteUser(id);
 
     }
-    public void updateUser(UserAccount account){
+    public void updateUser(UserAccount account,UserAccount newAccount){
        if(account != null){
-        userRepository.updateUser(account);
+       // userRepository.updateUser(account,newAccount);
        }
 
     }

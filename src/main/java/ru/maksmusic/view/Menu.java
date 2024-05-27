@@ -3,6 +3,7 @@ package ru.maksmusic.view;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
+import ru.maksmusic.repository.Admin.AdminRepositoryImpl;
 import ru.maksmusic.service.AdminService;
 import ru.maksmusic.service.GenerateID;
 import ru.maksmusic.service.SuperAdminService;
@@ -28,13 +29,13 @@ public class Menu {
         String answer = scanner.next();
         switch (answer) {
             case "1" -> {
-                    regUser();
+                regUser();
             }
             case "2" -> {
-                    regAdmin();
+                regAdmin();
             }
             case "3" -> {
-                    regSuperAdmin();
+                regSuperAdmin();
             }
             default -> {
 
@@ -44,32 +45,33 @@ public class Menu {
 
     }
 
-    private void regUser(){
+    private void regUser() {
         System.out.println("Ввидите логин : ");
         String name = scanner.next();
         System.out.println("Ввидите пароль : ");
         String password = scanner.next();
-        UserAccount userAccount = new UserAccount(GenerateID.getId(),name,password);
+        UserAccount userAccount = new UserAccount(GenerateID.getId(), name, password);
 
         userService.addUser(userAccount);
     }
 
-    private void regAdmin(){
+    private void regAdmin() {
         //принять информацию о админе и добавить его с помощью adminService
     }
 
-    private void regSuperAdmin(){
+    private void regSuperAdmin() {
         System.out.println("Ввидите логин : ");
         String name = scanner.next();
         System.out.println("Ввидите пароль : ");
         String password = scanner.next();
-        SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
+        SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(), name, password);
 
         //superAdminService еще не создан
-            //добавил метод addSuperAdminAccount
+        //добавил метод addSuperAdminAccount
         superAdminService.addSuperAdminAccount(superAdminAccount);
     }
-    private void logIn(){
+
+    private void logIn() {
         System.out.println("Введите в роли кого вы хотите войти");
         System.out.println("1 - user");
         System.out.println("2 - admin");
@@ -81,7 +83,8 @@ public class Menu {
 
 
     }
-    private void lkUser(UserAccount userAccount){
+
+    private void lkUser(UserAccount userAccount) {
         while (true) {
             // пункт 1 вывести информацию о юзере
             // пункт 2 сменить пароль
@@ -89,15 +92,15 @@ public class Menu {
             // 0 - выйти с лк (остановить цикл)
             //тут свитч кейс
             //Реализация работы личного кабинета для Юзера
-                //Просьба к юзеру ввести указанные числа для дальнейшего взаимодействия с приложением
+            //Просьба к юзеру ввести указанные числа для дальнейшего взаимодействия с приложением
             System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему логину.");
             System.out.println("Введите 2 чтобы сменить ваш пароль по логину.");
             System.out.println("Введите 3 чтобы посмотреть баланс по логину.");
             System.out.println("Введите 0 если хотите выйти.");
-                //Получение числа от юзера через Scanner
+            //Получение числа от юзера через Scanner
             String answerUser = scanner.next();
-                //Обработка полученного значения от юзера и дальнейшее взаимодействие с юзером
-            switch(answerUser){
+            //Обработка полученного значения от юзера и дальнейшее взаимодействие с юзером
+            switch (answerUser) {
                 //Действие при получении значения 1 -> просим ввести юзера его ID(?) после выводим всю информацию о юзере
                 case "1" -> {
                     System.out.print("Пожалуйста, введите ваш логин: ");
@@ -127,7 +130,7 @@ public class Menu {
         }
     }
 
-    private void lkAdmin(AdminAccount userAccount){
+    private void lkAdmin(AdminAccount userAccount) {
         while (true) {
             // пункт 1 вывести информацию о юзерах (Всех)
             // пункт 2 сменить юзеру пароль по id
@@ -136,9 +139,35 @@ public class Menu {
             // 0 - выйти с лк (остановить цикл)
             String answer = scanner.next();
             //тут свитч кейс
+            switch (answer) {
+                case "1" -> {
+                    System.out.println(adminService.getUserList());
+
+                }
+                case "2" -> {
+                    System.out.println("Введите id пользователя для смены пароля");
+                    String userId = scanner.nextLine();
+                    System.out.println("Введите новый пароль");
+                    String newPasswordUser = scanner.nextLine();
+                    adminService.changeUserPassword(userId, newPasswordUser);
+                }
+                case "3" -> {
+                    System.out.println("Введите id пользователя для просмотра баланса ");
+                    int userId = scanner.nextInt();
+                    scanner.nextLine();
+                    superAdminService.getUserBalanceById(userId);
+                }
+                case "5" -> {
+
+                }
+                case "0" ->{
+                    break;
+                }
+            }
         }
     }
-    private void lkSuperAdmin(SuperAdminAccount superAdminAccount){
+
+    private void lkSuperAdmin(SuperAdminAccount superAdminAccount) {
         // пункт 1 вывести информацию о юзере по id
         // пункт 2 сменить юзеру пароль по id
         // пункт 3 просмотр баланса юзера по id
