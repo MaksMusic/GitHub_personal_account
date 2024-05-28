@@ -64,7 +64,7 @@ public class Menu {
         System.out.println("Ввидите пароль : ");
         String password = scanner.next();
         SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
-        Ы
+
         superAdminService.addSuperAdminAccount(superAdminAccount);
     }
     private void logIn(){
@@ -79,9 +79,9 @@ public class Menu {
 
 
     }
-    private void lkUser(UserAccount userAccount){ВЫ
+    private void lkUser(UserAccount userAccount){
         while (true) {
-        Ы
+
             System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему логину.");
             System.out.println("Введите 2 чтобы сменить ваш пароль по логину.");
             System.out.println("Введите 3 чтобы посмотреть баланс по логину.");
