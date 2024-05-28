@@ -64,9 +64,7 @@ public class Menu {
         System.out.println("Ввидите пароль : ");
         String password = scanner.next();
         SuperAdminAccount superAdminAccount = new SuperAdminAccount(GenerateID.getId(),name,password);
-
-        //superAdminService еще не создан
-            //добавил метод addSuperAdminAccount
+        Ы
         superAdminService.addSuperAdminAccount(superAdminAccount);
     }
     private void logIn(){
@@ -81,15 +79,9 @@ public class Menu {
 
 
     }
-    private void lkUser(UserAccount userAccount){
+    private void lkUser(UserAccount userAccount){ВЫ
         while (true) {
-            // пункт 1 вывести информацию о юзере
-            // пункт 2 сменить пароль
-            // пункт 3 просмотр баланса
-            // 0 - выйти с лк (остановить цикл)
-            //тут свитч кейс
-            //Реализация работы личного кабинета для Юзера
-                //Просьба к юзеру ввести указанные числа для дальнейшего взаимодействия с приложением
+        Ы
             System.out.println("Введите 1 чтобы посмотреть Вашу информацию, по вашему логину.");
             System.out.println("Введите 2 чтобы сменить ваш пароль по логину.");
             System.out.println("Введите 3 чтобы посмотреть баланс по логину.");
@@ -139,15 +131,6 @@ public class Menu {
         }
     }
     private void lkSuperAdmin(SuperAdminAccount superAdminAccount){
-        // пункт 1 вывести информацию о юзере по id
-        // пункт 2 сменить юзеру пароль по id
-        // пункт 3 просмотр баланса юзера по id
-        // пункт 4 Вывести всех админов
-        // пункт 5 сменить пароль админу
-        // пункт 6 удалить аккаунт админа
-        // пункт 7 удалить аккаунт юзера
-        // сменить свой пароль
-        //тут свитч кейс
         while (true) {
             System.out.println("1 вывести информацию о юзере по id");
             System.out.println("2 сменить юзеру пароль по id");
