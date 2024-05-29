@@ -1,5 +1,6 @@
 package ru.maksmusic.view;
 
+import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
@@ -56,6 +57,11 @@ public class Menu {
     }
 
     private void regAdmin() {
+        System.out.println("Ввидите логин : ");
+        String name = scanner.next();
+        System.out.println("Ввидите пароль : ");
+        String password = scanner.next();
+        adminService.addAdmin(new AdminAccount(GenerateID.getId(), name, password));
         //принять информацию о админе и добавить его с помощью adminService
     }
 
@@ -76,7 +82,51 @@ public class Menu {
         System.out.println("1 - user");
         System.out.println("2 - admin");
         System.out.println("3 - super admin");
-
+        String number = scanner.next();
+        switch (number) {
+            case "1" -> {
+                System.out.println("Ввидите логин : ");
+                String name = scanner.next();
+                System.out.println("Ввидите пароль : ");
+                String password = scanner.next();
+                AccountDatabase  accountDatabase = new AccountDatabase();
+                for (UserAccount userAccount : accountDatabase.getUserAccounts()) {
+                    if(userAccount != null){
+                        if(userAccount.getLogin().equals(name) && userAccount.getPassword().equals(password)){
+                            lkUser(userAccount);
+                        }
+                    }
+                }
+            }
+            case "2" -> {
+                System.out.println("Ввидите логин : ");
+                String name = scanner.next();
+                System.out.println("Ввидите пароль : ");
+                String password = scanner.next();
+                AccountDatabase  accountDatabase = new AccountDatabase();
+                for (AdminAccount adminAccount : accountDatabase.getAdminAccounts()) {
+                    if(adminAccount != null){
+                        if(adminAccount.getLogin().equals(name) && adminAccount.getPassword().equals(password)){
+                            lkAdmin(adminAccount);
+                        }
+                    }
+                }
+            }
+            case "3" -> {
+                System.out.println("Ввидите логин : ");
+                String name = scanner.next();
+                System.out.println("Ввидите пароль : ");
+                String password = scanner.next();
+                AccountDatabase  accountDatabase = new AccountDatabase();
+                for (SuperAdminAccount superAdminAccount : accountDatabase.getSuperAdminAccounts()) {
+                    if(superAdminAccount != null){
+                        if(superAdminAccount.getLogin().equals(name) && superAdminAccount.getPassword().equals(password)){
+                            lkSuperAdmin(superAdminAccount);
+                        }
+                    }
+                }
+            }
+        }
         //далее принять число и принять логин и пароль и проверить есть ли данные в бд
         //или нету вернуть в главное меню(если есть в запустить метод lkUser() lkAdmin() или lkSuperAdmin()
         // куда передать самого юзера или админа или супер админа)
