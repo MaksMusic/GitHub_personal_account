@@ -4,7 +4,6 @@ import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
-import ru.maksmusic.repository.Admin.AdminRepositoryImpl;
 import ru.maksmusic.service.AdminService;
 import ru.maksmusic.service.GenerateID;
 import ru.maksmusic.service.SuperAdminService;
@@ -22,24 +21,29 @@ public class Menu {
     private Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        System.out.println("1 registration user");
-        System.out.println("2 registration admin");
-        System.out.println("3 registration superAdmin");
-        System.out.println("4 LogIn");
+        while (true) {
+            System.out.println("1 registration user");
+            System.out.println("2 registration admin");
+            System.out.println("3 registration superAdmin");
+            System.out.println("4 LogIn");
 
-        String answer = scanner.next();
-        switch (answer) {
-            case "1" -> {
-                regUser();
-            }
-            case "2" -> {
-                regAdmin();
-            }
-            case "3" -> {
-                regSuperAdmin();
-            }
-            default -> {
+            String answer = scanner.next();
+            switch (answer) {
+                case "1" -> {
+                    regUser();
+                }
+                case "2" -> {
+                    regAdmin();
+                }
+                case "3" -> {
+                    regSuperAdmin();
+                }
+                case "4" -> {
+                        logIn();
+                }
+                default -> {
 
+                }
             }
         }
 
@@ -89,10 +93,10 @@ public class Menu {
                 String name = scanner.next();
                 System.out.println("Ввидите пароль : ");
                 String password = scanner.next();
-                AccountDatabase  accountDatabase = new AccountDatabase();
+                AccountDatabase accountDatabase = new AccountDatabase();
                 for (UserAccount userAccount : accountDatabase.getUserAccounts()) {
-                    if(userAccount != null){
-                        if(userAccount.getLogin().equals(name) && userAccount.getPassword().equals(password)){
+                    if (userAccount != null) {
+                        if (userAccount.getLogin().equals(name) && userAccount.getPassword().equals(password)) {
                             lkUser(userAccount);
                         }
                     }
@@ -103,10 +107,10 @@ public class Menu {
                 String name = scanner.next();
                 System.out.println("Ввидите пароль : ");
                 String password = scanner.next();
-                AccountDatabase  accountDatabase = new AccountDatabase();
+                AccountDatabase accountDatabase = new AccountDatabase();
                 for (AdminAccount adminAccount : accountDatabase.getAdminAccounts()) {
-                    if(adminAccount != null){
-                        if(adminAccount.getLogin().equals(name) && adminAccount.getPassword().equals(password)){
+                    if (adminAccount != null) {
+                        if (adminAccount.getLogin().equals(name) && adminAccount.getPassword().equals(password)) {
                             lkAdmin(adminAccount);
                         }
                     }
@@ -117,10 +121,10 @@ public class Menu {
                 String name = scanner.next();
                 System.out.println("Ввидите пароль : ");
                 String password = scanner.next();
-                AccountDatabase  accountDatabase = new AccountDatabase();
+                AccountDatabase accountDatabase = new AccountDatabase();
                 for (SuperAdminAccount superAdminAccount : accountDatabase.getSuperAdminAccounts()) {
-                    if(superAdminAccount != null){
-                        if(superAdminAccount.getLogin().equals(name) && superAdminAccount.getPassword().equals(password)){
+                    if (superAdminAccount != null) {
+                        if (superAdminAccount.getLogin().equals(name) && superAdminAccount.getPassword().equals(password)) {
                             lkSuperAdmin(superAdminAccount);
                         }
                     }
@@ -210,7 +214,7 @@ public class Menu {
                 case "5" -> {
 
                 }
-                case "0" ->{
+                case "0" -> {
                     break;
                 }
             }
