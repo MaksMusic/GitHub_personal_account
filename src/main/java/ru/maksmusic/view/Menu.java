@@ -20,24 +20,29 @@ public class Menu {
     private Scanner scanner = new Scanner(System.in);
 
     public void start() {
-        System.out.println("1 registration user");
-        System.out.println("2 registration admin");
-        System.out.println("3 registration superAdmin");
-        System.out.println("4 LogIn");
+        while (true) {
+            System.out.println("1 registration user");
+            System.out.println("2 registration admin");
+            System.out.println("3 registration superAdmin");
+            System.out.println("4 LogIn");
 
-        String answer = scanner.next();
-        switch (answer) {
-            case "1" -> {
+            String answer = scanner.next();
+            switch (answer) {
+                case "1" -> {
                     regUser();
-            }
-            case "2" -> {
+                }
+                case "2" -> {
                     regAdmin();
-            }
-            case "3" -> {
+                }
+                case "3" -> {
                     regSuperAdmin();
-            }
-            default -> {
+                }
+                case "4" -> {
+                    logIn();
+                }
+                default -> {
 
+                }
             }
         }
 
@@ -72,7 +77,26 @@ public class Menu {
         System.out.println("1 - user");
         System.out.println("2 - admin");
         System.out.println("3 - super admin");
+        String role = scanner.next();
 
+        System.out.println("enter login");
+        String login = scanner.next();
+
+        System.out.println("enter password");
+        String password = scanner.next();
+
+
+        switch (role) {
+            case "1" -> {
+
+            }
+            case "2" -> {
+
+            }
+            case "3" -> {
+
+            }
+        }
         //далее принять число и принять логин и пароль и проверить есть ли данные в бд
         //или нету вернуть в главное меню(если есть в запустить метод lkUser() lkAdmin() или lkSuperAdmin()
         // куда передать самого юзера или админа или супер админа)
