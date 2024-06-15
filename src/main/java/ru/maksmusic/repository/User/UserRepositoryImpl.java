@@ -24,7 +24,7 @@ public class UserRepositoryImpl implements UserRepository {
         List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
         for (UserAccount userAccount : userAccounts) {
             if (userAccount.equals(account)){
-                // userAccounts.set(account,)
+                // userAccounts.set(account,);
             }
         }
 
@@ -41,6 +41,19 @@ public class UserRepositoryImpl implements UserRepository {
         List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
         int indexLogin = userAccounts.indexOf(userLogin);
         return userAccounts.get(indexLogin).getIdUsers();
+    }
+
+    @Override
+    public UserAccount getUser(String userLogin, String password) {
+        List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
+        for (UserAccount userAccount : userAccounts) {
+            if(userAccount != null){
+                if (userAccount.getLogin().equals(userLogin) && userAccount.getPassword().equals(password)){
+                    return userAccount;
+                }
+            }
+        }
+        return null;
     }
 }
 

@@ -9,4 +9,5 @@ public interface UserRepository {
     void fildUserBy(long id);
     //Имплементация нового метода: retrunUserLogin, в интерфейсе-репозитории, о причинах и функционале читай -> UserService
     long retrunUserId(String userLogin);
+   UserAccount getUser (String userLogin,String password);
 }

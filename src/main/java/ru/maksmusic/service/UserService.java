@@ -4,6 +4,7 @@ package ru.maksmusic.service;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import ru.maksmusic.dataBase.AccountDatabase;
+import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.User.UserRepositoryImpl;
 import ru.maksmusic.repository.User.UserRepository;
@@ -45,6 +46,7 @@ public class UserService {
         Collections.sort(userAccounts, Comparator.comparing(UserAccount::getLogin));
         return userAccounts;
     }
-
-
+    public UserAccount getUserLoginAndPassword(String UserLogin, String UserPassword) {
+        return userRepository.getUser(UserLogin, UserPassword);
+    }
 }
