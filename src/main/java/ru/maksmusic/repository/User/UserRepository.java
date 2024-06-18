@@ -6,8 +6,8 @@ public interface UserRepository {
     void addUser(UserAccount account);
     void deleteUser(long id);
     void  updateUser(UserAccount account);
-    void fildUserBy(long id);
-    //Имплементация нового метода: retrunUserLogin, в интерфейсе-репозитории, о причинах и функционале читай -> UserService
-    long retrunUserId(String userLogin);
+    void fieldUserBy(long id);
+    //Имплементация нового метода: returnUserLogin, в интерфейсе-репозитории, о причинах и функционале читай -> UserService
+    long returnUserId(String userLogin);
    UserAccount getUser (String userLogin,String password);
 }
