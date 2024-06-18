@@ -27,4 +27,13 @@ public class AccountDatabase {
     public List<SuperAdminAccount> getSuperAdminAccounts() {
         return superAdminAccounts;
     }
+
+    public void updateUserAccount(UserAccount user) {
+        for (int i = 0; i < userAccounts.size(); i++) {
+            if (userAccounts.get(i).getLogin().equals(user.getLogin())) {
+                userAccounts.set(i, user);
+                break;
+            }
+        }
+    }
 }

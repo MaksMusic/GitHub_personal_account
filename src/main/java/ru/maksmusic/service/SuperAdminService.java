@@ -1,15 +1,22 @@
 package ru.maksmusic.service;
 
+import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.SuperAdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.SuperAdmin.SuperAdminRepository;
 import ru.maksmusic.repository.SuperAdmin.SuperAdminRepositoryImpl;
+import ru.maksmusic.repository.User.UserRepositoryImpl;
 
 import java.util.List;
 
 public class SuperAdminService {
-    private SuperAdminRepository superAdminRepository = new SuperAdminRepositoryImpl();
+    private SuperAdminRepository superAdminRepository;
+
+    public SuperAdminService(AccountDatabase accountDatabase) {
+        this.superAdminRepository = new SuperAdminRepositoryImpl(accountDatabase);
+    }
+
     public void addSuperAdminAccount(SuperAdminAccount newaccount){
         superAdminRepository.addSuperAdminAccount(newaccount);
     }

@@ -1,5 +1,6 @@
 package ru.maksmusic.service;
 
+import ru.maksmusic.dataBase.AccountDatabase;
 import ru.maksmusic.model.AdminAccount;
 import ru.maksmusic.model.UserAccount;
 import ru.maksmusic.repository.Admin.AdminRepository;
@@ -8,7 +9,11 @@ import ru.maksmusic.repository.Admin.AdminRepositoryImpl;
 import java.util.List;
 
 public class AdminService {
-    AdminRepository adminRepository = new AdminRepositoryImpl();
+    private final AdminRepository adminRepository;
+
+    public AdminService(AccountDatabase accountDatabase) {
+        this.adminRepository = new AdminRepositoryImpl(accountDatabase);
+    }
 
     public void addAdmin (AdminAccount newAccount) {
             adminRepository.addAdmin(newAccount);

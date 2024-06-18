@@ -14,9 +14,13 @@ import java.util.Scanner;
 
 public class SuperAdminRepositoryImpl implements SuperAdminRepository {
     private AccountDatabase accountDatabase = new AccountDatabase();
-    private AdminRepository adminRepository = new AdminRepositoryImpl();
-    private UserRepository userRepository  = new UserRepositoryImpl();
+    private AdminRepository adminRepository = new AdminRepositoryImpl(accountDatabase);
+    private UserRepository userRepository  = new UserRepositoryImpl(accountDatabase);
     private Scanner scanner = new Scanner(System.in);
+
+    public SuperAdminRepositoryImpl(AccountDatabase accountDatabase) {
+        this.accountDatabase = accountDatabase;
+    }
 
     List<SuperAdminAccount> superAdminAccounts = accountDatabase.getSuperAdminAccounts();
     List<AdminAccount> adminAccounts = accountDatabase.getAdminAccounts();
@@ -89,8 +93,16 @@ public class SuperAdminRepositoryImpl implements SuperAdminRepository {
 
     @Override
     public void getUserBalanceById(long id) {
-        UserAccount currentUserAccount = userAccounts.get((int) id);
-        double currentUserBalance = currentUserAccount.getBalance();
-        System.out.println(currentUserBalance);
+        List<UserAccount> userAccounts = accountDatabase.getUserAccounts();
+        UserAccount currentUserAccount = userAccounts.stream()
+                .filter(user -> user.getIdUsers() == id)
+                .findFirst()
+                .orElse(null);
+        if (currentUserAccount != null) {
+            double currentUserBalance = currentUserAccount.getBalance();
+            System.out.println("Баланс пользователя " + currentUserAccount.getLogin() + ": " + currentUserBalance);
+        } else {
+            System.out.println("Пользователь с указанным id не найден.");
+        }
     }
 }
